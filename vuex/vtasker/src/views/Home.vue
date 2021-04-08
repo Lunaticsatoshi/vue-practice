@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    Hello Vue
+  <div class="home container">
+    <h1 class="page-header">Manage Users</h1>
   </div>
 </template>
 
