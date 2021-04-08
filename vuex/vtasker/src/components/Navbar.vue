@@ -18,6 +18,9 @@
             <router-link class="nav-link active" to="/">Home</router-link>
             <router-link class="nav-link" to="/about">About</router-link>
           </div>
+          <div class="navbar-nav ms-auto">
+            <router-link class="nav-link" to="/add">Add User</router-link>
+          </div>
         </div>
       </div>
     </nav>
