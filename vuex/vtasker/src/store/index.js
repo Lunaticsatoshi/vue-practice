@@ -27,7 +27,7 @@ export default createStore({
   },
   actions: {
     async addUser({commit}, user){
-      commit("addUsers", user)
+      commit("addUser", user)
     }
   },
   modules: {},
