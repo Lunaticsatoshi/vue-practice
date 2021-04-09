@@ -4,12 +4,17 @@
     <table class="table table-striped mt-4">
       <thead>
         <tr>
-          <th>User ID</th>
+          <th>Email</th>
           <th>Username</th>
           <th></th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        <tr v-for="user in users" :key="user.id">
+          <td> {{user.email}} </td>
+          <td> {{user.username}} </td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
@@ -17,10 +22,14 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'Home',
   components: {
+  },
+  computed: {
+    ...mapGetters({'users': 'getUsers'})
   }
 }
 </script>
