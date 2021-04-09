@@ -1,32 +1,24 @@
 import { createStore } from "vuex";
+import {getUsers, setUsers} from './localStorage'
 
 export default createStore({
   state: {
-    userList: [
-      {
-        username: "Satoshi",
-        email: "redlolicon99@gmail.com"
-      },
-      {
-        username: "Brad",
-        email: "bradfor69@gmail.com"
-      },
-      {
-        username: "Lolicon",
-        email: "lolilover99@yahoo.com"
-      },
-    ],
+    userList: getUsers(),
   },
   getters: {
     getUsers: (state) => state.userList
   },
   mutations: {
     addUser(state, payload){
-      state.userList.push(payload)
+      const users = [...state.userList, payload]
+      state.userList.push(users)
     }
   },
   actions: {
     async addUser({commit}, user){
+      const allUsers = getUsers();
+      const users = JSON.stringify([...allUsers, user]);
+      setUsers(users);
       commit("addUser", user)
     }
   },
