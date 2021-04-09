@@ -57,6 +57,7 @@ export default {
               }
 
               this.addUser(newUser);
+              this.$router.push("/");
           }
       }
   }
