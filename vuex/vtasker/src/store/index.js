@@ -11,7 +11,7 @@ export default createStore({
   mutations: {
     addUser(state, payload){
       const users = [...state.userList, payload]
-      state.userList.push(users)
+      state.userList = users
     }
   },
   actions: {

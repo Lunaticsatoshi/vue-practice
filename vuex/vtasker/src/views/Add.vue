@@ -4,7 +4,7 @@
     <h1 class="page-header">Add Users</h1>
     <form @submit.prevent="addNewUser">
       <div class="well">
-        <h4>Customer Info</h4>
+        <h4>User Info</h4>
         <div class="form-group">
           <label>Email</label>
           <input
@@ -57,7 +57,7 @@ export default {
               }
 
               this.addUser(newUser);
-            //   this.$router.push("/");
+              this.$router.push("/");
           }
       }
   }
