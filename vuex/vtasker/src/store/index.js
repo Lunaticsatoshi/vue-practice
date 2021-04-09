@@ -9,18 +9,26 @@ export default createStore({
       },
       {
         username: "Brad",
-        email: 'bradfor69@gmail.com'
+        email: "bradfor69@gmail.com"
       },
       {
         username: "Lolicon",
-        email: 'lolilover99@yahoo.com'
+        email: "lolilover99@yahoo.com"
       },
     ],
   },
   getters: {
     getUsers: (state) => state.userList
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    addUser(state, payload){
+      state.userList.push(payload)
+    }
+  },
+  actions: {
+    async addUser({commit}, user){
+      commit("addUsers", user)
+    }
+  },
   modules: {},
 });
