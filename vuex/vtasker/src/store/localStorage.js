@@ -6,3 +6,12 @@ export const getUsers = () => {
 export const setUsers = (users) => {
     return localStorage.setItem('users', users);
 }
+
+export const getTasks = () => {
+    const users = JSON.parse(localStorage.getItem('tasks')) || [];
+    return users;
+}
+
+export const setUsers = (tasks) => {
+    return localStorage.setItem('tasks', tasks);
+}

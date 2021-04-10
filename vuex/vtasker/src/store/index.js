@@ -4,9 +4,11 @@ import {getUsers, setUsers} from './localStorage'
 export default createStore({
   state: {
     userList: getUsers(),
+    taskList: ["Add Water to plants", "Watch Hentai", "Shit post on Twitter"]
   },
   getters: {
-    getUsers: (state) => state.userList
+    getUsers: (state) => state.userList,
+    getTasks: (state) => state.taskList
   },
   mutations: {
     addUser(state, payload){
