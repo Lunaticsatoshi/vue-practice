@@ -8,8 +8,8 @@ export const setUsers = (users) => {
 }
 
 export const getTasks = () => {
-    const users = JSON.parse(localStorage.getItem('tasks')) || [];
-    return users;
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    return tasks;
 }
 
 export const setTasks = (tasks) => {
