@@ -13,6 +13,7 @@
         <tr v-for="user in users" :key="user.id">
           <td> {{user.email}} </td>
           <td> {{user.username}} </td>
+          <td><router-link class="btn btn-success" v-bind:to="'/user/'+user.username">View</router-link></td>
         </tr>
       </tbody>
     </table>
