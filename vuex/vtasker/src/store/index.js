@@ -19,7 +19,7 @@ export default createStore({
     },
 
     addTask(state, payload) {
-      state.taskList = [...state.taskList, payload];
+      state.taskList = [...payload];
     },
   },
   actions: {
@@ -45,12 +45,12 @@ export default createStore({
     async addTask({ commit }, { username, task }) {
       const alltasks = getTasks();
       alltasks.find((a) => a.username === username).tasks.push(task);
-      const taskList = allTasks.filter((tasks) => tasks.username === username);
+      const taskList = alltasks.filter((tasks) => tasks.username === username).tasks;
       setTasks(JSON.stringify(alltasks));
       commit("addTask", taskList);
     },
 
-    async getTasks({ commit }, username) {
+    async setTask({ commit }, username) {
       const allTasks = getTasks();
       const taskList = allTasks.filter((tasks) => tasks.username === username);
       commit("addTask", taskList);

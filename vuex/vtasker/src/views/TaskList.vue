@@ -2,7 +2,7 @@
   <div class="Tasks container">
     <router-link to="/" class="btn btn-primary mt-4">Back</router-link>
     <h1 class="page-header mt-4">Task List</h1>
-    <form class="row align-items-center mb-4">
+    <form class="row align-items-center mb-4" @submit.prevent="addNewTask">
       <div class="col-md-8 col-sm-12">
         <div class="input-group">
           <input
@@ -19,23 +19,40 @@
       </div>
     </form>
 
-    <ul class="list-group" v-for="task in tasks" :key="task.id">
-      <li class="list-group-item mt-2">{{ task.title }}</li>
-    </ul>
+    <Tasks />
+
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import Tasks from '../components/Tasks';
+import { mapActions } from "vuex";
 export default {
   name: "TaskList",
+  components: {
+      Tasks
+  },
   data() {
     return {
       title: "",
     };
   },
-  computed: {
-    ...mapGetters({ tasks: "getTasks" }),
+  methods: {
+    ...mapActions(["setTask","addTask"]),
+    addNewTask(){
+        let newTask = {
+            username: this.$route.params.username,
+            task: {
+                title: this.title
+            }
+        }
+        console.log(newTask);
+        this.$router.push("/");
+        this.addTask(newTask);
+    }
+  },
+  mounted() {
+    this.setTask(this.$route.params.username);
   },
 };
 </script>
