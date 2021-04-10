@@ -12,6 +12,6 @@ export const getTasks = () => {
     return users;
 }
 
-export const setUsers = (tasks) => {
+export const setTasks = (tasks) => {
     return localStorage.setItem('tasks', tasks);
 }
