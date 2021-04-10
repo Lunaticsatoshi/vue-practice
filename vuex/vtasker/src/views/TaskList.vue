@@ -1,41 +1,42 @@
 <template>
   <div class="Tasks container">
-    <router-link to="/">Back</router-link>
-    <!-- <h1 class="page-header">
-      {{ customer.first_name }} {{ customer.last_name }}
-      <span class="pull-right">
-        <router-link class="btn btn-primary" v-bind:to="'/edit/' + customer.id"
-          >Edit</router-link
-        >
-        <button class="btn btn-danger" v-on:click="deleteCustomer(customer.id)">
-          Delete
-        </button>
-      </span>
-    </h1> -->
-    <!-- <ul class="list-group">
-      <li class="list-group-item">
-        <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-        {{ customer.phone }}
-      </li>
-      <li class="list-group-item">
-        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-        {{ customer.email }}
-      </li>
-    </ul> -->
+    <router-link to="/" class="btn btn-primary mt-4">Back</router-link>
+    <h1 class="page-header mt-4">Task List</h1>
+    <form class="row align-items-center mb-4">
+      <div class="col-md-8 col-sm-12">
+        <div class="input-group">
+          <input
+            type="text"
+            placeholder="Task"
+            v-model="title"
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
 
     <ul class="list-group" v-for="task in tasks" :key="task.id">
-      <li class="list-group-item">{{ task.title }}</li>
+      <li class="list-group-item mt-2">{{ task.title }}</li>
     </ul>
   </div>
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import { mapGetters } from "vuex";
 export default {
-    name: "TaskList",
-    computed: {
-        ...mapGetters({"tasks": "getTasks"})
-    }
+  name: "TaskList",
+  data() {
+    return {
+      title: "",
+    };
+  },
+  computed: {
+    ...mapGetters({ tasks: "getTasks" }),
+  },
 };
 </script>
 
