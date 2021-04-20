@@ -12,7 +12,7 @@
 import {mapActions} from 'vuex';
 export default {
   methods: {
-    ...mapActions["setCurrentFact"]
+    ...mapActions(["setCurrentFact"])
   },
   mounted() {
     this.setCurrentFact();

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h2 class="text">Get your facts right!!</h2>
-    <h3>I Am A Lolicon</h3>
+    <h3> {{fact}} </h3>
 
     <button class="add__joke">Add Fact</button>
   </div>
@@ -9,10 +9,14 @@
 
 <script>
 // @ is an alias to /src
+import {mapGetters} from "vuex"
 
 export default {
   name: "Home",
   components: {},
+  computed: {
+    ...mapGetters({fact: "getCurrentFact"})
+  }
 };
 </script>
 

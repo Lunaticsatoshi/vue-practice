@@ -1,8 +1,11 @@
 import { createStore } from 'vuex'
 
+const url = "https://uselessfacts.jsph.pl/random.json";
+const headers = { Accept: "application/json" };
+
 export default createStore({
   state: {
-    currentFact: '',
+    currentFact: 'This Is a Fact',
     allFacts: []
   },
   getters: {
@@ -17,8 +20,8 @@ export default createStore({
   },
   actions: {
     async setCurrentFact({commit}){
-      const factResponse = await fetch('https://uselessfacts.jsph.pl/random.json')
-      const fact = factResponse.json();
+      let factResponse = await fetch(url, {headers})
+      let fact = await factResponse.json();
       commit("setCurrentFact", fact.text)
 
     }
