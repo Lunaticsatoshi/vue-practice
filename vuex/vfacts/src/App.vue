@@ -8,6 +8,18 @@
   </div>
 </template>
 
+<script>
+import {mapActions} from 'vuex';
+export default {
+  methods: {
+    ...mapActions["setCurrentFact"]
+  },
+  mounted() {
+    this.setCurrentFact();
+  }
+}
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
