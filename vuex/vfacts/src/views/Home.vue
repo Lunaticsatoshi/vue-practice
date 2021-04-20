@@ -3,19 +3,22 @@
     <h2 class="text">Get your facts right!!</h2>
     <h3> {{fact}} </h3>
 
-    <button class="add__joke">Add Fact</button>
+    <button class="add__joke" @click="addFact">Add Fact</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import {mapGetters} from "vuex"
+import {mapGetters, mapActions} from "vuex"
 
 export default {
   name: "Home",
   components: {},
   computed: {
     ...mapGetters({fact: "getCurrentFact"})
+  },
+  methods: {
+    ...mapActions({addFact: "setCurrentFact"}),
   }
 };
 </script>
